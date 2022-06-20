@@ -1,7 +1,3 @@
-# plx <COMMAND> [ARGS]
-# plx <BOX> [ARGS]
-
-
 import sys
 import os
 
