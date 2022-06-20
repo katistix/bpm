@@ -2,8 +2,8 @@ import requests
 import subprocess
 import os
 
-REPOSERVER = 'https://raw.githubusercontent.com/katistix/bpm_boxes/master/'
-# REPOSERVER = 'http://localhost:3000/boxes_repo/'
+# REPOSERVER = 'https://raw.githubusercontent.com/katistix/bpm_boxes/master/'
+REPOSERVER = 'http://localhost:3000/boxes_repo/'
 
 def add(box):
 
