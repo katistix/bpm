@@ -2,14 +2,18 @@ import requests
 import subprocess
 import os
 
-publicrepo = 'https://raw.githubusercontent.com/katistix/bpm_boxes/master/'
-localrepo = 'http://localhost:3000/boxes_repo/' # Used for local testing purposes
-useLocalRepo = True # Do not modify
-REPOSERVER = localrepo if useLocalRepo else publicrepo
-
 
 
 def add(box):
+
+    # Decide which repo to use
+    if not '/' in box: # If using default repo
+        repouser = 'Box-Package-Manager'
+    else:
+        repouser = box.split('/')[0]
+        box = box.split('/')[1]
+
+    REPOSERVER = f"https://raw.githubusercontent.com/{repouser}/{box}/master"
 
     # Check if box is already installed
     boxFolder = 'boxes/' + box
@@ -18,8 +22,8 @@ def add(box):
         return
 
     # Check if box is available in repo
-    print(f'🔍 Checking if box is available at {REPOSERVER}{box}/files')
-    r = requests.get(f'{REPOSERVER}{box}/files')
+    print(f'🔍 Checking if box is available at {REPOSERVER}/boxfiles')
+    r = requests.get(f'{REPOSERVER}/boxfiles')
     if r.status_code == 200:
         print('✅ Box found!\n\n🪛 Installing...\n')
         # Create box folder
@@ -31,20 +35,20 @@ def add(box):
 
 
     # Get the 'files'
-    url = f'{REPOSERVER}{box}/files'
+    url = f'{REPOSERVER}/boxfiles'
     r = requests.get(url, allow_redirects=True)
     files = r.text.splitlines()
     for file in files:
         if file.startswith("#") or file.isspace() or not file.strip():
             continue
         # Download file
-        url = f'{REPOSERVER}{box}/{file}'
+        url = f'{REPOSERVER}/{file}'
         r = requests.get(url, allow_redirects=True)
         open('boxes/'+box+'/'+file, 'wb').write(r.content)
         print(f'Added: {file}')
     
     # Get the 'boxinstall'
-    url = f'{REPOSERVER}{box}/boxinstall'
+    url = f'{REPOSERVER}/boxinstall'
     r = requests.get(url, allow_redirects=True)
     if not r.status_code == 200:
         print('\n⚠️ boxinstall not found, skipping')
