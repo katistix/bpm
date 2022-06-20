@@ -9,6 +9,7 @@ import commands.rm as RM
 import commands.run as RUN
 import commands.getConfig as GET
 import commands.show as SHOW
+import commands.init as INIT
 
 COMMAND = sys.argv[1]
 helpText = """🔜 Soon to be implemented"""
@@ -18,10 +19,13 @@ if __name__ == '__main__':
     
     if COMMAND == 'h' or COMMAND == 'help':
         print(helpText)
+    elif COMMAND == 'init':
+        INIT.init()
 
-    elif COMMAND == 'install' or COMMAND == 'i':
+    elif COMMAND == 'install':
         ADD.add(sys.argv[2])
     
+
     elif COMMAND == 'rm' or COMMAND == 'remove':
         RM.rm(sys.argv[2])
     
