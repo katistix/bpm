@@ -1,1 +1,1 @@
-# pluxin
+# Box Package Manager (BPM)
