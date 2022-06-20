@@ -1,7 +1,12 @@
+# To view https://stackoverflow.com/questions/23793987/write-file-to-a-directory-that-doesnt-exist
+
 import requests
 import subprocess
 import os
 
+def safeWrite(path, r):
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    open(path, 'wb').write(r.content)
 
 
 def add(box):
@@ -44,7 +49,7 @@ def add(box):
         # Download file
         url = f'{REPOSERVER}/{file}'
         r = requests.get(url, allow_redirects=True)
-        open('boxes/'+box+'/'+file, 'wb').write(r.content)
+        safeWrite(boxFolder+'/'+file, r)
         print(f'Added: {file}')
     
     # Get the 'boxinstall'

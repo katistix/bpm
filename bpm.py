@@ -19,7 +19,7 @@ if __name__ == '__main__':
     if COMMAND == 'h' or COMMAND == 'help':
         print(helpText)
 
-    elif COMMAND == 'install' or COMMAND == 'add':
+    elif COMMAND == 'install' or COMMAND == 'i':
         ADD.add(sys.argv[2])
     
     elif COMMAND == 'rm' or COMMAND == 'remove':
@@ -28,7 +28,7 @@ if __name__ == '__main__':
     elif COMMAND == 'list' or COMMAND == 'ls':
         LIST.list()
     
-    elif COMMAND == 'update':
+    elif COMMAND == 'update' or COMMAND == 'u':
         print('🔜 Soon to be implemented')
     
     elif COMMAND == 'show':
