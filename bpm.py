@@ -28,7 +28,7 @@ if __name__ == '__main__':
     elif COMMAND == 'rm' or COMMAND == 'remove':
         RM.rm(sys.argv[2])
     
-    elif COMMAND == 'list':
+    elif COMMAND == 'list' or COMMAND == 'ls':
         LIST.list()
     
     elif COMMAND == 'update':
