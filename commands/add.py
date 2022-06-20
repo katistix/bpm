@@ -2,8 +2,12 @@ import requests
 import subprocess
 import os
 
-# REPOSERVER = 'https://raw.githubusercontent.com/katistix/bpm_boxes/master/'
-REPOSERVER = 'http://localhost:3000/boxes_repo/'
+publicrepo = 'https://raw.githubusercontent.com/katistix/bpm_boxes/master/'
+localrepo = 'http://localhost:3000/boxes_repo/' # Used for local testing purposes
+useLocalRepo = False # Do not modify
+REPOSERVER = localrepo if useLocalRepo else publicrepo
+
+
 
 def add(box):
 
