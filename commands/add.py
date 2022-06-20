@@ -1,7 +1,7 @@
 import requests
 import os
 
-REPOSERVER = 'https://raw.githubusercontent.com/katistix/plx_boxes/master/'
+REPOSERVER = 'https://raw.githubusercontent.com/katistix/bpm_boxes/master/'
 # REPOSERVER = 'localhost:3000/boxes_repo/'
 
 def add(box):
