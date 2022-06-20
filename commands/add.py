@@ -4,7 +4,7 @@ import os
 
 publicrepo = 'https://raw.githubusercontent.com/katistix/bpm_boxes/master/'
 localrepo = 'http://localhost:3000/boxes_repo/' # Used for local testing purposes
-useLocalRepo = False # Do not modify
+useLocalRepo = True # Do not modify
 REPOSERVER = localrepo if useLocalRepo else publicrepo
 
 
