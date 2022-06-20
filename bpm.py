@@ -8,6 +8,7 @@ import commands.list as LIST
 import commands.rm as RM
 import commands.run as RUN
 import commands.getConfig as GET
+import commands.show as SHOW
 
 COMMAND = sys.argv[1]
 helpText = """🔜 Soon to be implemented"""
@@ -30,6 +31,8 @@ if __name__ == '__main__':
     elif COMMAND == 'update':
         print('🔜 Soon to be implemented')
     
+    elif COMMAND == 'show':
+        SHOW.show(sys.argv[2])
     
     elif COMMAND == 'r' or COMMAND == 'run':
         RUN.run(sys.argv[2])
