@@ -1,3 +1,4 @@
+# Box Package Manager (bpm)
 bpm is a minimalist code package manager. You can think of it like a tool to download small (and usually not production ready) projects or scripts while also offering a more standardized way of managing and running them.
 
 
